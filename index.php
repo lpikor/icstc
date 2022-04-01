@@ -16,42 +16,71 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
+		
+		<h1>ICSTC</h1>
 
-		<?php
-		if ( have_posts() ) :
+		<div>
+			<h2>Incoming race</h2>
+			<div>05 days 04 hours 03 minutes</div>
+			<div>Track: Faenza</div>
+			<div>Car: Touring Car</div>
+		</div>
 
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-				<?php
-			endif;
+		<div>
+			<h2>Current standings after 3 races:</h2>
+			<h3>Leader: Minardi</h3>
+			<table>
+				<tr>
+					<th>Position</th>
+					<th>Name</th>
+					<th>Points</th>
+				</tr>
+				<tr>
+					<td>1.</td>
+					<td>Minardi</td>
+					<td>70 PTS</td>
+				</tr>
+				<tr>
+					<td>2.</td>
+					<td>Pikus</td>
+					<td>50 PTS</td>
+				</tr>
+				<tr>
+					<td>3.</td>
+					<td>Doghouse</td>
+					<td>30 PTS</td>
+				</tr>
+			</table>
+		</div>
 
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
+		<div>
+			<h2>Last race results</h2>
+			<h3>Winner: Pikus</h3>
+			<table>
+				<tr>
+					<th>Position</th>
+					<th>Name</th>
+					<th>Points</th>
+				</tr>
+				<tr>
+					<td>1.</td>
+					<td>Pikus</td>
+					<td>25 PTS</td>
+				</tr>
+				<tr>
+					<td>2.</td>
+					<td>Minardi</td>
+					<td>18 PTS</td>
+				</tr>
+				<tr>
+					<td>3.</td>
+					<td>Doghouse</td>
+					<td>15 PTS</td>
+				</tr>
+			</table>
+		</div>
 
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();
