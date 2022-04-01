@@ -176,3 +176,57 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Register custom post types.
+ */
+function register_custom_post_types() {
+
+	// Register Driver post type
+	register_post_type( 'driver', array(
+		'supports' => array( 'title' ),
+		'rewrite' => array( 'slug' => 'drivers' ),
+		'has_archive' => true,
+		'public' => true,
+		'labels' => array(
+			'name' => 'Drivers',
+			'add_new_item' => 'Add new Driver',
+			'edit_item' => 'Edit Driver',
+			'all_items' => 'All Drivers',
+			'singular_name' => 'Driver'
+		),
+		'menu_icon' => 'dashicons-admin-users'
+	) );
+	
+	// Register Track post type
+	register_post_type( 'track', array(
+		'supports' => array( 'title' ),
+		'rewrite' => array( 'slug' => 'tracks' ),
+		'has_archive' => true,
+		'public' => true,
+		'labels' => array(
+			'name' => 'Tracks',
+			'add_new_item' => 'Add new Track',
+			'edit_item' => 'Edit Track',
+			'all_items' => 'All Tracks',
+			'singular_name' => 'Track'
+		),
+		'menu_icon' => 'dashicons-location'
+	) );
+	
+	// Register Car post type
+	register_post_type( 'car', array(
+		'supports' => array( 'title' ),
+		'rewrite' => array( 'slug' => 'cars' ),
+		'has_archive' => true,
+		'public' => true,
+		'labels' => array(
+			'name' => 'Cars',
+			'add_new_item' => 'Add new Car',
+			'edit_item' => 'Edit Car',
+			'all_items' => 'All Cars',
+			'singular_name' => 'Car'
+		),
+		'menu_icon' => 'dashicons-car'
+	) );
+}
+add_action( 'init', 'register_custom_post_types' );
