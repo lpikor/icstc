@@ -230,3 +230,39 @@ function register_custom_post_types() {
 	) );
 }
 add_action( 'init', 'register_custom_post_types' );
+
+/**
+ * Add Track class.
+ */
+
+ Class Driver {
+
+	public function __construct( $id ) {
+		$this->id = $id;
+		$this->data = $this->get_driver_data();
+	}
+
+	private function get_driver_data() {
+		global $wpdb;
+		return $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}driver WHERE driver_id=$this->id" );
+	}
+
+	public function get_all_records() {
+		global $wpdb;
+		return $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}car_track_driver WHERE driver_id=$this->id" );
+	}
+
+	// Current proper format TO BE HANDLED?: set_time(1, 3, '00:01:07.575', '2022-04-02 21:06:41' )
+	public function set_time( $track_id, $car_id, $result, $set_at ) {
+		echo 'dupa';
+		global $wpdb;
+		$wpdb->insert( 'wp_car_track_driver', array(
+			'track_id' => $track_id,
+			'car_id' => $car_id,
+			'driver_id' => $this->id,
+			'result' => $result,
+			'set_at' => $set_at
+		) );
+	}
+	
+ }

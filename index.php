@@ -82,5 +82,10 @@ get_header();
 
 	</main><!-- #main -->
 
+	<?php
+		$driver = new Driver(1);
+		$driver->set_time(1, 3, '00:01:07.575', '2022-04-02 21:06:41' );
+	?>
+
 <?php
 get_footer();
